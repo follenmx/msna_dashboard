@@ -20,53 +20,68 @@ def load_data():
 
 
 df = load_data()
-refresh_button = st.sidebar.button('Data Refresh')
-if refresh_button:
-    load_data.clear()  
-    df = load_data() 
+#Sidebar changes
+with st.sidebar:
+    st.header("Actions")
+    button_col1, button_col2 = st.columns(2)
+    with button_col1:
+        refresh_button = st.button('Data Refresh')
+    with button_col2:
+        reset_button = st.button('Reset Filters')
     
-st.title("MSNA: Data Analysis")
+    if refresh_button:
+        load_data.clear()
+        st.rerun()
+    
+    if reset_button:
+        st.rerun()
 
-# FILTERS
-gender_filter = st.sidebar.multiselect(
-    "Please select Gender",
-    options=df["What is your sex?"].unique(),
-    default=df["What is your sex?"].unique(),
-)
+    st.markdown("---")  # Optional: Add a horizontal line to separate buttons from filters
 
-age_filter = st.sidebar.multiselect(
-    "Please select Age_group",
-    options=df["Age_grp"].unique(),
-    default=df["Age_grp"].unique(),
-)
+    st.header("Filters")
 
-nationality_filter = st.sidebar.multiselect(
-    "Please select Nationality",
-    options=df["What is your citizenship?"].unique(),
-    default=df["What is your citizenship?"].unique(),
-)
+    gender_filter = st.multiselect(
+        "Please select Gender",
+        options=df["What is your sex?"].unique(),
+        default=df["What is your sex?"].unique(),
+    )
 
-legal_filter = st.sidebar.multiselect(
-    "Please select Legal Status",
-    options=df[
-        "What is your current status (e.g., refugee, asylum seeker, etc.)?"
-    ].unique(),
-    default=df[
-        "What is your current status (e.g., refugee, asylum seeker, etc.)?"
-    ].unique(),
-)
+    age_filter = st.multiselect(
+        "Please select Age_group",
+        options=df["Age_grp"].unique(),
+        default=df["Age_grp"].unique(),
+    )
 
-ethnic_filter = st.sidebar.multiselect(
-    "Please select Ethnicity",
-    options=df["Please specify what ethnic minority group"].unique(),
-    default=df["Please specify what ethnic minority group"].unique(),
-)
+    nationality_filter = st.multiselect(
+        "Please select Nationality",
+        options=df["What is your citizenship?"].unique(),
+        default=df["What is your citizenship?"].unique(),
+    )
 
-accomodation_filter = st.sidebar.multiselect(
-    "Please select Accomodation",
-    options=df["Do you currently live in a city or a village?"].unique(),
-    default=df["Do you currently live in a city or a village?"].unique(),
-)
+    legal_filter = st.multiselect(
+        "Please select Legal Status",
+        options=df[
+            "What is your current status (e.g., refugee, asylum seeker, etc.)?"
+        ].unique(),
+        default=df[
+            "What is your current status (e.g., refugee, asylum seeker, etc.)?"
+        ].unique(),
+    )
+
+    ethnic_filter = st.multiselect(
+        "Please select Ethnicity",
+        options=df["Please specify what ethnic minority group"].unique(),
+        default=df["Please specify what ethnic minority group"].unique(),
+    )
+
+    accomodation_filter = st.multiselect(
+        "Please select Accommodation",
+        options=df["Do you currently live in a city or a village?"].unique(),
+        default=df["Do you currently live in a city or a village?"].unique(),
+    )
+
+    # Display total submissions after filters
+    st.markdown(f"**Total Submissions: {len(df)}**")
 
 # Filter query
 df_query = (
