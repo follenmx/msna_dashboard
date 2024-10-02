@@ -93,6 +93,9 @@ df_query = (
     "`Do you currently live in a city or a village?`.isin(@accomodation_filter)"
 )
 df = df.query(df_query)
+if df.empty: # TO ADD MAIN!!!
+    st.warning("No data available for the selected filters.")
+    st.stop()
 
 total_submissions = len(df)
 average_value = round(df["How many members are in your household, including you?"].mean(), 1)
