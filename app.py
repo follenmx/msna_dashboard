@@ -20,7 +20,11 @@ def load_data():
 
 
 df = load_data()
-
+refresh_button = st.sidebar.button('Data Refresh')
+if refresh_button:
+    load_data.clear()  
+    df = load_data() 
+    
 st.title("MSNA: Data Analysis")
 
 # FILTERS
