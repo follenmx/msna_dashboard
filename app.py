@@ -8,7 +8,7 @@ import re
 st.set_page_config(
     page_title="MSNA", page_icon="🧊", layout="wide", initial_sidebar_state="expanded"
 )
-
+st.title('📊MSNA Survey: Data Analysis')
 
 sheet_id = st.secrets['data_link'] # Change to st.secret
 csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv"
