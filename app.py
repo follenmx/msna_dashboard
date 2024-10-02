@@ -78,21 +78,29 @@ df_query = (
     "`Do you currently live in a city or a village?`.isin(@accomodation_filter)"
 )
 df = df.query(df_query)
-st.sidebar.markdown(f"**Total Submissions: {len(df)}**")
 
-st.markdown(f"**Total Submissions: {len(df)}**")
-average_value = round(
-    df["How many members are in your household, including you?"].mean(), 1
-)
-st.markdown(f"**Avg household size: {average_value}**")
+total_submissions = len(df)
+average_value = round(df["How many members are in your household, including you?"].mean(), 1)
 max_value = df["How many members are in your household, including you?"].max()
-st.markdown(f"**Max household size: {max_value}**")
 kid_value = round(df["Of these, how many are children under 18?"].mean(), 1)
-st.markdown(f"**Avg # of children in a household: {kid_value}**")
-elderly_value = round(
-    df["Of these, how many are senior citizens, aged over 60?"].mean(), 1
-)
-st.markdown(f"**Avg # of elderly in a household: {elderly_value}**")
+elderly_value = round(df["Of these, how many are senior citizens, aged over 60?"].mean(), 1)
+age_value = round(df["What is your age?"].mean(), 1)
+
+col1, col2, col3 = st.columns(3)
+with col1:
+    st.markdown(f"**Total Submissions:** {total_submissions}")
+with col2:
+    st.markdown(f"**Avg household size:** {average_value}")
+with col3:
+    st.markdown(f"**Max household size:** {max_value}")
+
+col4, col5, col6 = st.columns(3)
+with col4:
+    st.markdown(f"**Avg # of children in a household:** {kid_value}")
+with col5:
+    st.markdown(f"**Avg # of elderly in a household:** {elderly_value}")
+with col6:
+    st.markdown(f"**Avg age:** {age_value}")
 
 
 def create_sex_distribution_pie_chart(df, column_name, fig_title):
