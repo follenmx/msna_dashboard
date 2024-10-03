@@ -298,6 +298,31 @@ household_size_hist = create_histogram(
 )
 st.plotly_chart(household_size_hist)
 
+dif1_bar = create_bar_chart(
+    df,
+    "Do you have difficulty seeing, even when wearing glasses?",
+    "Difficulty Seeing, Even When Wearing Glasses",
+)
+st.plotly_chart(dif1_bar)
+dif2_bar = create_bar_chart(
+    df,
+    "Do you have difficulty hearing, even if using a hearing aid?",
+    "Difficulty Hearing, Even When Using a Hearing Aid",
+)
+st.plotly_chart(dif2_bar)
+dif3_bar = create_bar_chart(
+    df,
+    "Do you have difficulty walking or climbing steps?",
+    "Difficulty Walking or Climbing Steps",
+)
+st.plotly_chart(dif3_bar)
+dif4_bar = create_bar_chart(
+    df,
+    "Do you have difficulty remembering or concentrating?",
+    "Difficulty Remembering or Concentrating",
+)
+st.plotly_chart(dif4_bar)
+
 # Household Difficulty
 household_difficulty_pie_chart = create_sex_distribution_pie_chart(
     df,
