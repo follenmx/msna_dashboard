@@ -372,6 +372,22 @@ able_to_access_healthservice_need_pie_chart_fig = create_sex_distribution_pie_ch
 )
 st.plotly_chart(able_to_access_healthservice_need_pie_chart_fig)
 
+coverage_options1 = [
+    "Covered by government either through insurance or temporary protection status",
+    "Partially covered, with out-of-pocket payments required",
+    "Entirely covered by private healthcare / out-of-pocket payment",
+    "Covered by an NGO or non-profit organization",
+    "Prefer not to say",
+    "Other (please specify)"
+]
+services_needed_bar_chart = create_mbar_chart(
+    df,
+    "How did you pay for the service?",
+    coverage_options1,
+    "How did you pay for the service?",
+)
+st.plotly_chart(services_needed_bar_chart)
+
 # Access Preventive Health Services
 access_preventive_options = [
     "No difficulties",
