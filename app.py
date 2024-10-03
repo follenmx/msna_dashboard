@@ -367,7 +367,7 @@ st.plotly_chart(services_needed_bar_chart)
 
 able_to_access_healthservice_need_pie_chart_fig = create_sex_distribution_pie_chart(
     df,
-    "Were you able to access the healthcare service you needed??",
+    "Were you able to access the healthcare service you needed?",
     "Were you able to access the healthcare service you needed?",
 )
 st.plotly_chart(able_to_access_healthservice_need_pie_chart_fig)
