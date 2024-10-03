@@ -380,13 +380,13 @@ coverage_options1 = [
     "Prefer not to say",
     "Other (please specify)"
 ]
-services_needed_bar_chart = create_mbar_chart(
+coverage1_bar_chart = create_mbar_chart(
     df,
     "How did you pay for the service?",
     coverage_options1,
     "How did you pay for the service?",
 )
-st.plotly_chart(services_needed_bar_chart)
+st.plotly_chart(coverage1_bar_chart)
 
 # Access Preventive Health Services
 access_preventive_options = [
