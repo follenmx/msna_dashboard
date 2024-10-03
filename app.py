@@ -403,7 +403,7 @@ service_barriers1 = [
 service_barriers1_bar_chart = create_mbar_chart(
     df,
     "What prevented you from receiving the service?",
-    coverage_options1,
+    service_barriers1,
     "What prevented you from receiving the service?",
 )
 st.plotly_chart(service_barriers1_bar_chart)
