@@ -388,6 +388,27 @@ coverage1_bar_chart = create_mbar_chart(
 )
 st.plotly_chart(coverage1_bar_chart)
 
+service_barriers1 = [
+    "Discrimination",
+    "Long waiting times",
+    "Lack of information about available services",
+    "Lack of necessary documentation",
+    "Lack of specialized services",
+    "Transportation issues",
+    "Cost of services",
+    "Language barriers",
+    "Prefer not to say",
+    "Other (please specify)"
+]
+service_barriers1_bar_chart = create_mbar_chart(
+    df,
+    "What prevented you from receiving the service?",
+    coverage_options1,
+    "What prevented you from receiving the service?",
+)
+st.plotly_chart(service_barriers1_bar_chart)
+
+
 # Access Preventive Health Services
 access_preventive_options = [
     "No difficulties",
