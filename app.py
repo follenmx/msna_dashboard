@@ -338,6 +338,33 @@ healthcare_need_pie_chart_fig = create_sex_distribution_pie_chart(
 )
 st.plotly_chart(healthcare_need_pie_chart_fig)
 
+# Access Reproductive Health Services
+services_list1 = [
+    "Pharmacy services / medication",
+    "Vaccinations",
+    "Specialist consultations (e.g., cardiology, neurology)",
+    "Laboratory tests or diagnostic imaging (e.g., X-rays, MRI)",
+    "Chronic disease management (e.g., diabetes, hypertension)",
+    "Emergency care",
+    "General medical check-up",
+    "Pediatric care",
+    "Dental care",
+    "Mental health services",
+    "Reproductive health services",
+    "Maternity and prenatal care",
+    "COVID-19 related services",
+    "Physical therapy or rehabilitation",
+    "Prefer not to say",
+    "Other (please specify)"
+]
+services_needed_bar_chart = create_mbar_chart(
+    df,
+    "What types of medical services did you need?",
+    services_list1,
+    "What types of medical services did you need?",
+)
+st.plotly_chart(services_needed_bar_chart)
+
 # Access Preventive Health Services
 access_preventive_options = [
     "No difficulties",
