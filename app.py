@@ -331,6 +331,12 @@ household_difficulty_pie_chart = create_sex_distribution_pie_chart(
 )
 st.plotly_chart(household_difficulty_pie_chart)
 
+healthcare_need_pie_chart_fig = create_sex_distribution_pie_chart(
+    df,
+    "Since arriving in Moldova, have you or any member of your household needed to access healthcare services or medications?",
+    "Since arriving in Moldova, have you or any member of your household needed to access healthcare services or medications?",
+)
+st.plotly_chart(healthcare_need_pie_chart_fig)
 
 # Access Preventive Health Services
 access_preventive_options = [
